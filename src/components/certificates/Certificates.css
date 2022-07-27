@@ -1,0 +1,36 @@
+
+/* .tabsStyle{
+    color: black;
+    border-bottom: 1px solid #E3E5E5 !important;
+}
+
+.templateContainer{
+    box-sizing: border-box;
+
+position: absolute;
+height: 652px;
+left: 445px;
+right: 142px;
+top: 270px;
+
+
+background: #E6EFFF;
+border: 1px dashed #007AFF;
+border-radius: 10px;
+}
+
+.firstrow{
+    padding: 20px;
+} */
+
+.custom_file_upload {
+    cursor: pointer;
+    font-size: inherit;
+    color: #0c090d;
+    float: right;
+    padding: 6px;
+}
+
+.custom_file_upload:hover {
+    text-decoration: underline;
+}

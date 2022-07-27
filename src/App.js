@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Navbar from "./components/navbar/Navbar";
+import Sidebar from "./components/sidebar/Sidebar";
+import { Route, Routes } from 'react-router-dom'
+import Dashboard from "./components/main/Main";
+import CertificateTemplate from "./components/certificates/Certificates";
+const App = () => {
 
-function App() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const openSidebar = () => {
+    setSidebarOpen(true);
+  }
+  const closeSidebar = () => {
+    setSidebarOpen(false);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Navbar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
+      <Routes>
+        <Route path="/" exact element={<Dashboard />} />
+        <Route path="/CertificateTemplate" exact element={< CertificateTemplate />} />
+      </Routes>
+      <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
     </div>
   );
+
+
+
 }
 
 export default App;
