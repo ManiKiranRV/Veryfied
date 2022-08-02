@@ -1,5 +1,5 @@
 import "./Sidebar.css";
-// import logo from "../../assets/RV_favicon.png"
+import logo from "../../assets/V-icon.png"
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
@@ -17,8 +17,8 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
         <div className={sidebarOpen ? "sidebar-responsive" : ""} id="sidebar">
             <div className="sidebar__title">
                 <div className="sidebar__img">
-                    {/* <img src={logo} alt="logo" />  */}
-                    <h1>
+                    <img src={logo} alt="logo" /> 
+                    <h1 className="projectTitle">
                         Veryfied
                     </h1>
                 </div>

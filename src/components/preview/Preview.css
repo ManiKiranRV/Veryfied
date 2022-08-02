@@ -1,115 +1,150 @@
-.BOX__contianer{
-    width: 1065px;
-    height: 533px;
+.main {
+    border: 1px solid black;
+    font-family: 'Quicksand' !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 767px;
+    height: 942px;
     left: 513px;
     top: 326px;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    background: url("../../assets/Certificate_Background 01.png") !important;
+  }
 
 
-/* body {
-    font-family: Roboto;
-} */
-
-
-.MuiGrid-spacing-xs-2 > .MuiGrid-item {
-    padding: 8px;
+  .universityName {
+    margin-top: 2%;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 38px;
     text-align: center;
-}
+    color: #242426;
+  }
 
-strong.capital{
-    text-transform: capitalize;
-}
-
-.button{
+  .address {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 38px;
     text-align: center;
-    margin-top: -2px;
-}
+    color: #242426;
+  }
 
-span.heighlight{
-    font-weight: 600;
+  .collageName {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 38px;
+    text-align: center;
+    color: #242426;
+  }
+
+  .certificteHeading {
+    margin-top: 5%;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 28px;
+    text-align: center;
+    color: #000000;
+  }
+
+  .certificateSubHeading {
+    margin-left: 16%;
+    margin-top: 5%;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    color: #000000;
+  }
+
+  .certificateBody {
+    width: 640px;
+    margin-left: 9%;
+    margin-top: 16%;
+    font-style: normal;
+    font-weight: 500;
     font-size: 20px;
-}
+    line-height: 48px;
+    letter-spacing: -0.02em;
+    color: #000000;
+  }
 
-.subheading{
-    border: 2px solid;
-    padding: 10px;
-}
+  /* Create three equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 44%;
+    /* padding: 10px; */
+  }
 
-.certificate-container {
-    padding: 10px;
-    /* width: 1024px; */
-}
-.certificate {
-    /* border: 20px solid #0C5280; */
-    padding: 10px;
-    /* height: 600px; */
-    position: relative;
-}
+  .columnFooter {
+    float: left;
+    width: 33%;
+  }
 
-.certificate:after {
-    content: '';
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-    right: 0px;
-    position: absolute;
-    background-image: url(https://image.ibb.co/ckrVv7/water_mark_logo.png);
-    background-size: 100%;
-    z-index: -1;
-}
-
-.certificate-header > .logo {
-    width: 80px;
-    height: 80px;
-}
-
-.certificate-title {
-    text-align: center;  
-    font-size: 47px;  
-}
-
-.certificate-body {
-}
-
-.certificate-heading{
+  .certificateFooter {
+    margin-left: 5%;
+    margin-top: 24%;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
     text-align: center;
-}
+    color: #000000;
+  }
 
-h1 {
+  .certificatesignatureFooter {
+    line-height: 35px;
+    text-align: center;
+    color: #000000;
+    margin-top: 17%;
+    margin-left: 5%;
+  }
 
-    font-weight: 400;
-    font-size: 48px;
-    color: #0C5280;
-}
+  .certificatesubfooter {
+    margin-top: 6%;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: #000000;
+  }
 
-.student-name {
-    font-size: 24px;
-}
+  img.signatureLogo {
+    width: 45%;
+    height: 45%;
+  }
 
-.underline{
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .row.image {
+    text-align: center;
+  }
+
+  .logo {
+    width: 123px;
+    height: 125px;
+    margin-top: 5%;
+  }
+
+  .underline {
     border-bottom: dotted 1px black;
-}
-
-.certificate-content {
-    margin: 0 auto;
-    width: 750px;
-    letter-spacing: 2px;
-    font-size: 20px;
-
-}
-
-.about-certificate {
-    width: 380px;
-    margin: 0 auto;
-}
-
-.topic-description {
-
-    text-align: center;
-}
-
+  }
 
 
 

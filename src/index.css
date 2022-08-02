@@ -2,9 +2,19 @@
 
 /* styling scrollbar */
 
+body{
+  font-size: 12px !important;
+  font-family: 'Quicksand' !important;
+}
+
 .MuiBox-root.MuiBox-root-4{
   border-bottom: 1px solid #E3E5E5 !important;
 
+}
+
+.MuiTypography-root{
+  font-size: 12px !important;
+  font-family: 'Quicksand' !important;
 }
 
 
@@ -14,20 +24,21 @@
 
 .MuiTypography-root.MuiTypography-body1{
   box-sizing: border-box;
-  position: absolute;
-  height: 580px;
-  left: 362px;
-  right: 40px;
-  top: 200px;
-  background: #E6EFFF;
-  border: 1px dashed #007AFF;
-  border-radius: 10px;
-  padding: 20px;
+    position: absolute;
+    height: auto;
+    left: 24%;
+    right: 2%;
+    top: 30%;
+    background: #E6EFFF;
+    border: 1px dashed #007AFF;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 12px !important;
 }
 
 .MuiPaper-root.MuiPaper-elevation1.MuiPaper-rounded{
   margin-top: 5px;
-  width: 316px;
+  width: 289px;
   height: 55px;
   text-align: center;
 }

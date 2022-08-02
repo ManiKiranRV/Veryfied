@@ -34,3 +34,10 @@ border-radius: 10px;
 .custom_file_upload:hover {
     text-decoration: underline;
 }
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+  }

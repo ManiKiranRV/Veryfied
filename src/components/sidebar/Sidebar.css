@@ -5,6 +5,7 @@
     padding: 20px;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
+    height: 100vh !important;
 }
 
 .sidebar__title{
@@ -20,8 +21,12 @@
     align-items: center;
 }
 
+.projectTitle{
+    margin-left: 15%;
+}
+
 .sidebar__title >div >img{
-    width: 75px;
+    /* width: 75px; */
     object-fit: contain;
 }
 

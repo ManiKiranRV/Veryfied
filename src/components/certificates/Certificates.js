@@ -90,7 +90,7 @@ export default function CertificateTemplate() {
         setValue(newValue);
     };
 
-    const [checkedValue, setCheckedValue] = useState([]);
+    const [checkedValue] = useState([]);
     var checkedValue_array = [];
     var finalCheckedData;
     const [MintcertificatedData, setMintcertificatedData] = useState([]);
@@ -130,19 +130,29 @@ export default function CertificateTemplate() {
         uploadimages(e.target.files[0]).then(resp => {
             console.log("111", resp);
             if (resp.status['code'] === 'SUCCESS') {
-                if (imgtype == 'Director of Evalution') {
-                    setDirectorofEvalution(resp['data'][0].newFileName);
-                    console.log("setDirectorofEvalution", DirectorofEvalution)
-                }
-                else if (imgtype == 'Controller of Examination') {
-                    setControllerofExamination(resp['data'][0].newFileName)
-                }
-                else if (imgtype == 'Registrar') {
-                    setRegistrar(resp['data'].newFileName)
-                }
-                else if (imgtype == 'Logo') {
-                    setUniversityLogo(resp['data'][0].newFileName)
-                }
+                Swal.fire({
+                    title: "Success",
+                    text: `Upload Successfuly`,
+                    icon: "success",
+                    confirmButtonText: "OK",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        if (imgtype === 'Director of Evalution') {
+                            setDirectorofEvalution(resp['data'][0].newFileName);
+                            console.log("setDirectorofEvalution", DirectorofEvalution)
+                        }
+                        else if (imgtype === 'Controller of Examination') {
+                            setControllerofExamination(resp['data'][0].newFileName)
+                        }
+                        else if (imgtype === 'Registrar') {
+                            setRegistrar(resp['data'].newFileName)
+                        }
+                        else if (imgtype === 'Logo') {
+                            setUniversityLogo(resp['data'][0].newFileName)
+                        }
+                    }
+                });
+
             }
         })
     }
@@ -153,18 +163,21 @@ export default function CertificateTemplate() {
             console.log("111", resp);
             if (resp.status['code'] === 'SUCCESS') {
                 let finalData = resp['data'].map(e => {
-                    console.log("2222",resp['data'])
+                    console.log("2222", resp['data'])
                     let data_obj = {
                         "universityName": Name_of_the_university,
                         "city": City,
                         "pincode": PIN_Code,
                         "collegeCode": College_Code,
+                        "hallticketNo": '888888888',
                         "issueDate": Issue_Date,
                         "state": State,
                         "country": Country,
                         "studentFirstName": e['first name of the student'],
                         "studentSecondName": e['second name of the student'],
                         "gender": e['gender'],
+                        "affiliatedCollege": e['affiliate collage name'],
+                        "branch": e['branch'],
                         "parentsName": e['father/mother’s name'],
                         "major": e['major'],
                         "studentEmail": e['studentemail'],
@@ -291,7 +304,7 @@ export default function CertificateTemplate() {
                                 >
                                     <div className="firstrow">
                                         <Grid container spacing={4}>
-                                            <Grid item xs={3}>
+                                            <Grid item xs={4}>
                                                 <TextField id="standard-name" fullWidth label="Name of the university/college" variant="standard"
                                                     value={Name_of_the_university}
                                                     onChange={(e) => setNameoftheuniversity(e.target.value)}
@@ -303,7 +316,7 @@ export default function CertificateTemplate() {
                                                     onChange={(e) => setCity(e.target.value)}
                                                 />
                                             </Grid>
-                                            <Grid item xs={3}>
+                                            <Grid item xs={2}>
                                                 <TextField id="standard-name" label="PIN/Zip Code" variant="standard"
                                                     value={PIN_Code}
                                                     onChange={(e) => setPINCode(e.target.value)}
@@ -353,7 +366,32 @@ export default function CertificateTemplate() {
                                         </p>
                                     </div>
                                     <div>
-                                        <Grid container spacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                                        <Grid container spacing={3} columnSpacing={{ xs: 1, sm: 3, md: 3 }}>
+
+                                            <Grid item>
+                                                <Item>
+
+                                                    <div style={{ padding: 7 }}>
+                                                        <Checkbox
+                                                            // icon={<CircleUnchecked />}
+                                                            // checkedIcon={<CircleChecked />}
+                                                            sx={{
+                                                                "& .MuiSvgIcon-root": {
+                                                                    fontSize: 70,
+                                                                    borderRadius: 20
+                                                                },
+                                                                '&.Mui-checked': {
+                                                                    color: green[600],
+                                                                },
+                                                            }}
+
+                                                            {...label}
+                                                            value={'Affiliate Collage Name'} onChange={handleCheck} />
+                                                       Affliate College Name
+                                                    </div>
+                                                </Item>
+                                            </Grid>
+
                                             <Grid item>
                                                 <Item>
 
@@ -391,7 +429,7 @@ export default function CertificateTemplate() {
                                                     </div>
                                                 </Item>
                                             </Grid>
-                                            <Grid item>
+                                            {/* <Grid item>
                                                 <Item>
                                                     <div style={{ padding: 7 }}>
                                                         <Checkbox {...label} sx={{
@@ -404,7 +442,7 @@ export default function CertificateTemplate() {
                                                         Gender
                                                     </div>
                                                 </Item>
-                                            </Grid>
+                                            </Grid> */}
 
                                         </Grid>
                                         <Grid container spacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -495,12 +533,27 @@ export default function CertificateTemplate() {
                                                                 color: green[600],
                                                             },
                                                         }}
+                                                            value={'Branch'} onChange={handleCheck}
+                                                        />
+                                                        Branch
+                                                    </div>
+                                                </Item>
+                                            </Grid>
+                                            {/* <Grid item>
+                                                <Item>
+                                                    <div style={{ padding: 7 }}>
+                                                        <Checkbox {...label} sx={{
+                                                            color: green[800],
+                                                            '&.Mui-checked': {
+                                                                color: green[600],
+                                                            },
+                                                        }}
                                                             value={'Minor'} onChange={handleCheck}
                                                         />
                                                         Minor
                                                     </div>
                                                 </Item>
-                                            </Grid>
+                                            </Grid> */}
                                             <Grid item>
                                                 <Item>
                                                     <div style={{ padding: 7 }}>
