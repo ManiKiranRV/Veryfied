@@ -238,7 +238,7 @@ export default function CertificateTemplate() {
     const showAlert = (resp) => {
         Swal.fire({
             title: "Success",
-            text: "Alert successful",
+            text: "Data Upload Successful",
             icon: "success",
             confirmButtonText: "OK",
         }).then((result) => {
