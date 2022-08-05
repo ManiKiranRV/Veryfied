@@ -11,7 +11,11 @@ export async function createExcel(obj) {
 }
 
 export async function excelDownload(fileName) {
-    const response = await fetch(baseUrl1 + `/excel/` + fileName, { responseType: 'arraybuffer', headers: { 'Content-Type': 'blob' } })
+    const response = await fetch(baseUrl1 + `/excel/` + fileName,
+        {
+            responseType: 'arraybuffer',
+            headers: { 'Content-Type': 'blob' }
+        })
     return await response.blob();
 }
 
@@ -27,7 +31,7 @@ export async function uploadimages(images) {
 }
 
 
-export async function uploadExcel(excelFile){
+export async function uploadExcel(excelFile) {
     var data = new FormData();
     data.append("file", excelFile);
     const response = await fetch(baseUrl + `/uploadExcel`, {
@@ -35,23 +39,42 @@ export async function uploadExcel(excelFile){
         type: "formData",
         body: data
     })
-    return await response.json();  
+    return await response.json();
 }
 
-export async function createCert(data){
+export async function createCert(data) {
     const response = await fetch(baseUrl + `/createCert`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
     })
-    return await response.json(); 
+    return await response.json();
 }
 
-export async function mintCertificate(data){
+export async function mintCertificate(data) {
     const response = await fetch(baseUrl + `/mintCertificate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
     })
-    return await response.json(); 
+    return await response.json();
+}
+
+
+export async function getImagesDocs(imageNewFileName) {
+    const response = await fetch(baseUrl1 + `/docs/` + imageNewFileName,
+        {
+            responseType: 'arraybuffer',
+            headers: { 'Content-Type': 'blob' }
+        })
+    return await response.blob();
+}
+
+
+export async function getCerts() {
+    const response = await fetch(baseUrl1 + `/getCerts/`,
+        {
+            headers: { 'Content-Type': 'application/json' },
+        })
+    return await response.json();
 }

@@ -1,44 +1,59 @@
-import { Grid } from '@material-ui/core';
 import { React } from 'react';
 import { useState, useEffect } from 'react';
-import Box from '@material-ui/core/Box';
 import './Preview.css';
-import jntuLogo from "../../assets/jntu.jpeg"
-import sig1 from "../../assets/ControllerofExamination.png"
-import sig2 from "../../assets/V-icon.png"
-import sig3 from "../../assets/V-icon.png"
-
 
 const Preview = (props) => {
-    const [users, setUsers] = useState([]);
+    const [users, setUsers] = useState({});
+    const [logoImage, setLogoImage] = useState("");
+    const [registrarSignature, setregistrarSignature] = useState("");
+    const [doeSignature, setdoeSignature] = useState("");
+    const [coeSignature, setcoeSignature] = useState("");
+
+
     let propsData = props.data;
 
     useEffect(() => {
-        fetchData()
-    })
-    const fetchData = () => {
-        console.log("props.data", propsData);
+        console.log("props.data", propsData[0]);
         setUsers(propsData[0]);
         console.log("2222", users);
+        imageApiCall();
+    }, [])
+
+
+    const imageApiCall = () => {
+        console.log("images:::::", propsData[0]['universityLogo'], propsData[0]['coeSignature'], propsData[0]['doeSignature'], propsData[0]['registrarSignature'])
+        const imageObjectURL = 'http://api.verified.realware.app/veryfied/docs/' + propsData[0]['universityLogo'];
+        setLogoImage(imageObjectURL)
+
+        const imageObjectURL1 = 'http://api.verified.realware.app/veryfied/docs/' + propsData[0]['coeSignature'];
+        setcoeSignature(imageObjectURL1)
+
+        const imageObjectURL2 = 'http://api.verified.realware.app/veryfied/docs/' + propsData[0]['doeSignature'];
+        setdoeSignature(imageObjectURL2)
+
+        const imageObjectURL3 = 'http://api.verified.realware.app/veryfied/docs/' + propsData[0]['registrarSignature'];
+        setregistrarSignature(imageObjectURL3)
+        // });
     }
+
 
     return (
         <div className="main">
             <div classNameName="mainContainer">
 
                 <div className="row image">
-                    <img src={jntuLogo} className="logo" alt="Logo" />
+                    <img src={logoImage} className="logo" alt="Logo" />
                 </div>
                 <div className="row">
                     <div className="universityName">
-                        Jawaharlal Nehru Technological University
-        </div>
+                        {users['universityName']}
+                    </div>
                     <div className="address">
-                        Kakinada - 533 003, Andhra Pradesh, India
-        </div>
+                        {users['city']} - {users['pincode']},{users['state']}, {users['country']}
+                    </div>
                     <div className="collageName">
-                        College : PACE INSTITUTE OF TECHNOLOGY AND SCIENCES
-        </div>
+                        College : {users['affiliatedCollege']}
+                    </div>
                 </div>
                 <div className="certificteHeading">
                     Provisonal Certificate
@@ -47,43 +62,43 @@ const Preview = (props) => {
                     <div className="column">Hall Ticket No : <b>888888888</b>
                     </div>
                     <div className="column">
-                        PC.No : <b>202112999</b>
+                        PC.No : <b>{users['collegeCode']}</b>
                     </div>
                 </div>
 
 
                 <div className="certificateBody">
 
-                    This is to Certify That <b className="underline"> XXXXXXXXXX </b>
+                    This is to Certify That <b className="underline"> {users['studentFirstName']} {users['studentSecondName']}</b>
 
-        son/daughter of Shri. <b className="underline"> YYYYYYYYY </b>
+        son/daughter of Shri. <b className="underline"> {users['parentsName']} </b>
 
-        passed <b className="underline"> B.Tech <small> (CIVIL ENGINEERING) </small></b> degree
+        passed <b className="underline"> {users['degree']} <small> (  {users['branch']} ) </small></b> degree
 
-        examination of this university held in <b className="underline"> April 2013 </b> and that
+        examination of this university held in <b className="underline"> {users['examDate']} </b> and that
 
-        he/she was placed in <b className="underline"> **** First className With Distinction **** </b>
+        he/she was placed in <b className="underline"> **** {users['placedIn']} **** </b>
 
-        He/She has satisfied all the requirements for the award of the B.Tech
+        He/She has satisfied all the requirements for the award of the {users['degree']}
 
         degree of the Jawaharlal Nehru Technological University.
       </div>
 
                 <div className="certificatesubfooter">
                     <div className="columnFooter">
-                        Date : 27/07/2019
-        </div>
+                        Date : {users['issueDate']}
+                    </div>
                 </div>
 
                 <div className="certificatesignatureFooter">
                     <div className="columnFooter">
-                        <img src={sig1} className="signatureLogo" alt="Logo" />
+                        <img src={coeSignature} className="signatureLogo" alt="Logo" />
                     </div>
                     <div className="columnFooter">
-                        <img src={sig1} className="signatureLogo" alt="Logo" />
+                        <img src={doeSignature} className="signatureLogo" alt="Logo" />
                     </div>
                     <div className="columnFooter">
-                        <img src={sig1} className="signatureLogo" alt="Logo" />
+                        <img src={registrarSignature} className="signatureLogo" alt="Logo" />
                     </div>
 
                 </div>
