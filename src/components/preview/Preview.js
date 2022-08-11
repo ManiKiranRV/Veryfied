@@ -22,16 +22,16 @@ const Preview = (props) => {
 
     const imageApiCall = () => {
         console.log("images:::::", propsData[0]['universityLogo'], propsData[0]['coeSignature'], propsData[0]['doeSignature'], propsData[0]['registrarSignature'])
-        const imageObjectURL = 'http://api.verified.realware.app/veryfied/docs/' + propsData[0]['universityLogo'];
+        const imageObjectURL = 'https://api.verified.realware.tech/veryfied/docs/' + propsData[0]['universityLogo'];
         setLogoImage(imageObjectURL)
 
-        const imageObjectURL1 = 'http://api.verified.realware.app/veryfied/docs/' + propsData[0]['coeSignature'];
+        const imageObjectURL1 = 'https://api.verified.realware.tech/veryfied/docs/' + propsData[0]['coeSignature'];
         setcoeSignature(imageObjectURL1)
 
-        const imageObjectURL2 = 'http://api.verified.realware.app/veryfied/docs/' + propsData[0]['doeSignature'];
+        const imageObjectURL2 = 'https://api.verified.realware.tech/veryfied/docs/' + propsData[0]['doeSignature'];
         setdoeSignature(imageObjectURL2)
 
-        const imageObjectURL3 = 'http://api.verified.realware.app/veryfied/docs/' + propsData[0]['registrarSignature'];
+        const imageObjectURL3 = 'https://api.verified.realware.tech/veryfied/docs/' + propsData[0]['registrarSignature'];
         setregistrarSignature(imageObjectURL3)
         // });
     }
@@ -69,19 +69,17 @@ const Preview = (props) => {
 
                 <div className="certificateBody">
 
-                    This is to Certify That <b className="underline"> {users['studentFirstName']} {users['studentSecondName']}</b>
+                    This is to Certify That <b className="underline"> {users['studentFirstName']} {users['studentSecondName']} </b>
 
-        son/daughter of Shri. <b className="underline"> {users['parentsName']} </b>
+        son/daughter of Shri. <b className="underline">  {users['parentsName']}  </b>
 
         passed <b className="underline"> {users['degree']} <small> (  {users['branch']} ) </small></b> degree
 
         examination of this university held in <b className="underline"> {users['examDate']} </b> and that
 
-        he/she was placed in <b className="underline"> **** {users['placedIn']} **** </b>
+        he/she was placed in <b className="underline">  **** {users['placedIn']} ****  </b>
 
-        He/She has satisfied all the requirements for the award of the {users['degree']}
-
-        degree of the Jawaharlal Nehru Technological University.
+        He/She has satisfied all the requirements for the award of the {users['degree']} degree of the {users['universityName']}.
       </div>
 
                 <div className="certificatesubfooter">

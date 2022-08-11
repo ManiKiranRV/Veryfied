@@ -1,5 +1,5 @@
-const baseUrl = 'http://api.verified.realware.app/veryfied/veryfiedApp';
-const baseUrl1 = 'http://api.verified.realware.app/veryfied';
+const baseUrl = 'https://api.verified.realware.tech/veryfied/veryfiedApp';
+const baseUrl1 = 'https://api.verified.realware.tech/veryfied';
 
 export async function createExcel(obj) {
     const response = await fetch(baseUrl + `/createExcel`, {
@@ -72,9 +72,28 @@ export async function getImagesDocs(imageNewFileName) {
 
 
 export async function getCerts() {
-    const response = await fetch(baseUrl1 + `/getCerts/`,
+    const response = await fetch(baseUrl + `/getCerts/`,
         {
             headers: { 'Content-Type': 'application/json' },
         })
     return await response.json();
+}
+export async function getCertUniversityDetails(filter) {
+    const response = await fetch(baseUrl + `/getCertUniversityDetails`,
+        {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({filter})
+        })
+        return await response.json();
+}
+
+export async function getCertCollegeDetails(filter) {
+    const response = await fetch(baseUrl + `/getCertCollegeDetails`,
+        {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({filter})
+        })
+        return await response.json();
 }

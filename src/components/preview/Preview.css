@@ -107,6 +107,8 @@
     color: #000000;
     margin-top: 17%;
     margin-left: 5%;
+    mix-blend-mode: multiply;
+
   }
 
   .certificatesubfooter {

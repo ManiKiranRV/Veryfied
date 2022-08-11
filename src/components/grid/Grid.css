@@ -1,0 +1,11 @@
+tr.MuiTableRow-root:hover{
+    background-color: #f3f4f6 !important;
+}
+
+i.fa.fa-arrow-left{
+    cursor: pointer;
+    float: right;
+    font-size: 12px;
+    margin-top: 2%;
+}
+

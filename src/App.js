@@ -4,9 +4,27 @@ import Sidebar from "./components/sidebar/Sidebar";
 import { Route, Routes } from 'react-router-dom'
 import Dashboard from "./components/main/Main";
 import CertificateTemplate from "./components/certificates/Certificates";
+import Login from './components/login/Login';
+function setToken(userToken) {
+  sessionStorage.setItem('token', JSON.stringify(userToken));
+}
+
+function getToken() {
+  const tokenString = sessionStorage.getItem('token');
+  const userToken = JSON.parse(tokenString);
+  return userToken?.token
+}
+
 const App = () => {
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const token = getToken();
+
+  // if(!token) {
+  //   return <Login setToken={setToken} />
+  // }
+
   const openSidebar = () => {
     setSidebarOpen(true);
   }

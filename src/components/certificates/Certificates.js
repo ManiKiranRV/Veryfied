@@ -17,10 +17,16 @@ import fileSaver from 'file-saver';
 import "./Certificates.css";
 import Swal from "sweetalert2";
 import Button from "@material-ui/core/Button";
+import ClipLoader from "react-spinners/ClipLoader";
 
+import { CSSProperties } from "react";
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-
+const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+};
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -57,7 +63,8 @@ function a11yProps(index) {
 }
 
 export default function CertificateTemplate() {
-
+    let [loading, setLoading] = useState(false);
+    let [color, setColor] = useState("#ffffff");
 
 
     const [Name_of_the_university, setNameoftheuniversity] = useState("");
@@ -127,8 +134,10 @@ export default function CertificateTemplate() {
 
 
     const onChangeFileControllerofExamination = (e) => {
+        setLoading(!loading);
         console.log("onChangeFileControllerofExamination");
         uploadimages(e.target.files[0]).then(resp => {
+            setLoading(false);
             if (resp.status['code'] === 'SUCCESS') {
                 Swal.fire({
                     title: "Success",
@@ -384,6 +393,10 @@ export default function CertificateTemplate() {
                                         <Grid item xs={3}>
                                             <TextField id="standard-name" label="Issue Date" variant="standard"
                                                 value={Issue_Date}
+                                                type="date"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
                                                 onChange={(e) => setIssueDate(e.target.value)}
                                             />
                                         </Grid>
@@ -637,7 +650,7 @@ export default function CertificateTemplate() {
                                                     <input type="file" id="file" style={{ display: "none" }}
                                                         onChange={onChangeFileDirectorofEvalution}
                                                     />
-                                                    <label htmlFor="file"  style={{ cursor: "pointer" }}>
+                                                    <label htmlFor="file" style={{ cursor: "pointer" }}>
                                                         <i for="file" className="fa-solid fa-arrow-up-from-bracket"></i>
                                                         <span for="file" style={{ fontSize: 10, marginLeft: 6 }}>Click to upload signature</span>
                                                     </label>
@@ -661,7 +674,7 @@ export default function CertificateTemplate() {
                                                     <input type="file" id="file1" style={{ display: "none" }}
                                                         onChange={onChangeFileRegistrar}
                                                     />
-                                                    <label htmlFor="file1"  style={{ cursor: "pointer" }}>
+                                                    <label htmlFor="file1" style={{ cursor: "pointer" }}>
                                                         <i for="file1" className="fa-solid fa-arrow-up-from-bracket"></i>
                                                         <span for="file1" style={{ fontSize: 10, marginLeft: 6 }}>Click to upload signature</span>
                                                     </label>
@@ -756,6 +769,7 @@ export default function CertificateTemplate() {
                     </div>
                 </Box>
             </div>
+            <ClipLoader color={color} loading={loading} cssOverride={override} size={150} />
         </main >
     );
 }
