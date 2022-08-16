@@ -52,6 +52,10 @@
     padding: 7px;
 }
 
+.logout{
+    cursor: pointer
+};
+
 /* .main__title > h1{
     font-size: 45px;
 } */
