@@ -22,6 +22,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { CSSProperties } from "react";
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
 const override = {
     display: "block",
     margin: "0 auto",
@@ -134,10 +135,10 @@ export default function CertificateTemplate() {
 
 
     const onChangeFileControllerofExamination = (e) => {
-        setLoading(!loading);
+        // setLoading(!loading);
         console.log("onChangeFileControllerofExamination");
         uploadimages(e.target.files[0]).then(resp => {
-            setLoading(false);
+            // setLoading(false);
             if (resp.status['code'] === 'SUCCESS') {
                 Swal.fire({
                     title: "Success",

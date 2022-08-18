@@ -3,6 +3,7 @@ import './Login.css';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import logo from "../../assets/V-icon.png"
+import Swal from "sweetalert2";
 
 
 
@@ -12,8 +13,20 @@ export default function Login({ setToken }) {
   const [password, setPassword] = useState();
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log('1111')
-    setToken(Token);
+    if (username === 'admin' && password === 'admin@123') {
+      console.log('1111')
+      setToken(Token);
+    }
+    else {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Invalid Username/Password',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
+
   }
 
   return (
@@ -51,9 +64,9 @@ export default function Login({ setToken }) {
         <h5>Login</h5>
         {/* <p>Don't have an account? <a href="#">Creat Your Account</a> it takes less than a minute</p> */}
         <div class="inputs">
-          <input type="text" placeholder="user name" />
+          <input type="text" placeholder="User Name" onChange={e => setUserName(e.target.value)} />
           <br />
-          <input type="password" placeholder="password" />
+          <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
         </div>
         <br /><br />
         <div class="remember-me--forget-password">

@@ -152,7 +152,7 @@ const Grid = () => {
                     (
                         < Paper className={classes.root} >
                             <h1 className={classes.heading}>
-                                University List
+                            Universities
                             </h1>
                             < TableContainer className={classes.container} >
                                 <Table stickyHeader aria-label="sticky table">
@@ -253,7 +253,7 @@ const Grid = () => {
                                                         <TableCell align="" style={{ color: "#007aff", cursor: "pointer" }}
                                                             onClick={() =>
                                                                 window.open(row.certificateLink)
-                                                            } > {row.certificateLink}</TableCell>
+                                                            } > Click Here </TableCell>
                                                         <TableCell align="">{row.blockChainHash}</TableCell>
                                                     </TableRow>
                                                 )
